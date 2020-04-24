@@ -1,15 +1,9 @@
 // See https://github.com/holtwick/peer2school-server
-export const SIGNAL_SERVER_URL = 'wss://signal.brie.fi'
+export const SIGNAL_SERVER_URL = 'wss://' + window.location.host
 
 // See https://github.com/feross/simple-peer#peer--new-peeropts
+// See https://jsxc.readthedocs.io/en/latest/howtos/webrtc.html#configure-stun-turn-server-in-jsxc
 export const ICE_CONFIG = {
-  iceTransportPolicy: 'all',
-  reconnectTimer: 3000,
-  iceServers: [{
-    urls: 'stun:stun.brie.fi:5349',
-  }, {
-    urls: 'turn:stun.brie.fi:5349',
-    username: 'brie',
-    credential: 'fi',
-  }],
+  url: '/peers.json',
+  withCredentials: false,
 }
