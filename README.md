@@ -36,4 +36,18 @@ Frankly this is not required, because your browser can handle it all. You can of
 
 ---
 
+**Setting up your own server**
+
+An official server is available at https://brie.fi/ng/, but if you want to use your own one, we provide a Docker image at [`holtwick/briefing`](https://hub.docker.io/r/holtwick/briefing).
+
+You will have to set up a reverse proxy to terminate HTTPS traffic (including websockets) and a STUN/TURN server.
+
+To configure your instance, you can use the following environment variables:
+- `TURN` is the "host:port" address of the TURN server to use (for proxying between networks) - it is required.
+- `TURN_USERNAME` is the username for the TURN server (using a shared secret is recommended).
+- `TURN_PASSWORD` is the password for the TURN server (using a shared secret is recommended).
+- `TURN_SECRET` is the shared secret used to generate temporary TURN passwords, and must be the same as `static-auth-secret` in `turnserver.conf`.
+- `TURN_WHITELIST` is a comma-separated list of domains that may access the TURN server when using a shared secret (this is checked through the "Referrer" header).
+- `STUN` is the "host:port" address of the STUN server to use (for IP discovery) - if empty, the value of `TURN` will be used.
+
 For signal server code see [peer2school-server](https://github.com/holtwick/peer2school-server)

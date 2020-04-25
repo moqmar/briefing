@@ -9,7 +9,7 @@ let config = {
 if (isProduction) {
 
   // Path on GitHub Pages
-  config.publicPath = `/app`
+  //config.publicPath = `/app`
 
   // Don't load workbox stuff from third party site
   // config.pwa = {
