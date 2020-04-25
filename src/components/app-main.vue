@@ -91,7 +91,7 @@ export default {
     },
     doQuit() {
       if (confirm('Really quit this session?')) {
-        location.assign('/ng/')
+        location.assign('./')
       }
     },
   },

@@ -4,11 +4,11 @@ import { defaultAudioConstraints, defaultVideoConstraints, getDevices, getUserMe
 
 const log = require('debug')('app:state')
 
-export const DEBUG = location.port.toString() === '8080' || !location.pathname.startsWith('/ng/')
+export const DEBUG = location.port.toString() === '8080'
 
 // ROOM
 
-let room = DEBUG ? 'development' : location.pathname.substr('/ng/'.length)
+let room = DEBUG ? 'development' : location.pathname.replace(/.*\//, "")
 
 // STATE
 
