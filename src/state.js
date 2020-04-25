@@ -9,6 +9,10 @@ export const DEBUG = location.port.toString() === '8080'
 // ROOM
 
 let room = DEBUG ? 'development' : location.pathname.replace(/.*\//, "")
+if (room == '' || room == 'create') {
+	room = require('nanoid').nanoid()
+	window.history.replaceState({}, '', '/' + room);
+}
 
 // STATE
 

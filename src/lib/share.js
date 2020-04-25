@@ -1,7 +1,7 @@
 import clipboardCopy from 'clipboard-copy'
 
 export function createLinkForRoom(room) {
-  return `https://brie.fi/ng/${room}`
+  return window.location.protocol + '//' + window.location.host + window.location.pathname.replace(/[^/]+$/, '') + room
 }
 
 export async function shareLink(url, {
